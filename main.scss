@@ -1,0 +1,178 @@
+$backgroundColor: rgba(45,64,89,255);
+$redish: rgba(234,84,85,255);
+$orangeish: rgba(240,123,63,255);
+$yellowish: rgba(255,212,96,255);
+$white: #fff;
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    .container {
+        width: 100%;
+        height: 100vh;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+
+            &:nth-of-type(1) {
+                background-color: $backgroundColor;
+                .div1 {
+                    font-family: monospace;
+                    color: $white;
+
+
+                    h1 {
+                        font-size: 5em;
+                        position: relative;
+                        width: max-content;
+                        &::before, &::after{
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                        }
+                        &::before{
+                            background-color: $backgroundColor;
+                            animation: typewriter 4s steps(23) 1s forwards;
+                        }
+                        &::after{
+                            width: 0.125em;
+                            background-color: $white;
+                            animation: typewriter 4s steps(23) 1s forwards,
+                            blink 500ms steps(23) infinite;
+                        }
+                        @keyframes typewriter {
+                            to {
+                                left: 100%;
+                            }
+                        }
+                        @keyframes blink {
+                            to {
+                                background: transparent;
+                            } 
+                        }
+                        @keyframes blinkFinish {
+                            to {
+                                background: none;
+                            }
+                        }
+                    }
+                    p {
+                        font-size: 3em;
+                        opacity: 0;
+                        transform: translateY(3rem);
+                        animation: fadeIn 2s ease 6s forwards;
+                        @keyframes fadeIn {
+                            to { 
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                    }
+                    h2 {
+                        padding-top: 300px;
+                        margin-bottom: -2px;
+                        height: 30px;
+                        line-height: 40px;
+                        opacity: 0;
+                        transform: translateY(3rem);
+                        animation: fadeIn 2s ease 8s forwards;
+                    }
+                    a {
+                        text-decoration: none;
+                        width: 100vw;
+                        opacity: 0;
+                        transform: translateY(3rem);
+                        animation: fadeIn 2s ease 9.5s forwards;
+                        span {
+                            color: $white;
+                            text-decoration: none;
+                        }
+                    }
+
+                }
+            }
+            &:nth-of-type(2) {
+                background-color: rgb(48, 48, 48);
+                color: $white;
+                .left {
+                    width: 40%;
+                    height: 100vh;
+                    background-color: rgb(48, 48, 48);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    div{
+                        height: 60vh;
+                        h1 {
+                            font-size: 10em;
+                        }
+                        p {
+                            font-size: 2em;
+                            margin-top: -100px;
+                        }
+                    }
+                }
+                .right {
+                    width: 60%;
+                    height: 100vh;
+                    background-color: $rgb(48, 48, 48);
+                    display: flex;
+                    align-items: center;
+                    div {
+                        width: 90%;
+                        height: 60vh;
+                        .figure1 {
+                            width: 100%;
+                            height: 100%;
+                            text-align: right;
+                            font-size: 16px;
+
+                            &:hover img {
+                            zoom: 1;
+                            filter: alpha(opacity=50);
+                            -webkit-opacity: 0.5;
+                            opacity: 0.5;
+                            }
+                            img {
+                                max-width: 100%;
+                                height: 100%;
+                                backface-visibility: hidden;
+                                div {
+                                    width: 100%;
+                                    height: 200px;
+                                    background-color: blue;
+                                    z-index: 4;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(3) {
+                background-color: rgb(48, 48, 48);
+                color: yellow;
+            }
+            h1 {
+                font-size: 20em;
+            }
+        }
+    }
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
