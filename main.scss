@@ -98,8 +98,12 @@ body {
                         transform: translateY(3rem);
                         animation: fadeIn 2s ease 9.5s forwards;
                         span {
-                            color: $white;
                             text-decoration: none;
+                            color: white;
+                            transition: all 500ms ease-in-out;
+                            &:hover{
+                                transform: scale(1.2);
+                            }
                         }
                     }
 
@@ -129,7 +133,7 @@ body {
                 .right {
                     width: 60%;
                     height: 100vh;
-                    background-color: $rgb(48, 48, 48);
+                    background-color: rgb(48, 48, 48);
                     display: flex;
                     align-items: center;
                     div {
